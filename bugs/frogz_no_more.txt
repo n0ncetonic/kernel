@@ -1,0 +1,71 @@
+> Description >
+> The lookup_pi_state and futex_requeue functions in kernel/futex.c in
+> the Linux kernel through 4.15.12, and 4.16-rc through 4.16-rc6, allow
+> local users to read portions of kernel memory and potentially gain
+> privileges because pi state can be NULL, a similar issue to
+> CVE-2016-1880.
+>
+> ------------------------------------------
+>
+> [Additional Information]
+> https://elixir.bootlin.com/linux/v4.16-rc6/source/kernel/futex.c#L1994 (null pointer reference; pi-state)
+>
+> Currently being exploited by *.gov/russians ;PpPpP
+>
+> ------------------------------------------
+>
+> [VulnerabilityType Other]
+> Arbitrary read via null pointer address/leak
+>
+> ------------------------------------------
+>
+> [Vendor of Product]
+> Ubuntu 14.04.5 LTS
+>
+> ------------------------------------------
+>
+> [Affected Product Code Base]
+> Linux - <= 4.16-rc6 (current)
+>
+> ------------------------------------------
+>
+> [Affected Component]
+> lookup_pi_state()
+>
+> ------------------------------------------
+>
+> [Attack Type]
+> Local
+>
+> ------------------------------------------
+>
+> [Impact Code execution]
+> true
+>
+> ------------------------------------------
+>
+> [Impact Escalation of Privileges]
+> true
+>
+> ------------------------------------------
+>
+> [Impact Information Disclosure]
+> true
+>
+> ------------------------------------------
+>
+> [Attack Vectors]
+> allows local users to read portions of kernel memory and potentially gain privilege via pi state being NULL.
+> similar to https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1880
+>
+> ------------------------------------------
+>
+> [Reference]
+> https://pastebin.com/raw/7P2dG81M
+>
+> ------------------------------------------
+>
+> [Discoverer]
+> greetz to AB from UA
+
+Use CVE-2018-9008.
