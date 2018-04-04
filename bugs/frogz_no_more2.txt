@@ -1,0 +1,68 @@
+> Description >
+> The vm_area_register_early function in mm/vmalloc.c in the Linux
+> kernel through 4.15.15, and 4.16, has a use-after-free because the
+> PFN_ALIGN macro (for calculating virtual memory offsets) can be called
+> with an invalid data structure.
+>
+> ------------------------------------------
+>
+> [Additional Information]
+> Use-after-free in the PFN_ALIGN macro for allocating virtual memory offsets
+>
+> ------------------------------------------
+>
+> [VulnerabilityType Other]
+> use-after-free
+>
+> ------------------------------------------
+>
+> [Vendor of Product]
+> Linux
+>
+> ------------------------------------------
+>
+> [Affected Product Code Base]
+> Linux - Current (4.16-rc7)
+>
+> ------------------------------------------
+>
+> [Affected Component]
+> https://github.com/torvalds/linux/blob/master/mm/vmalloc.c#L1247
+>
+> ------------------------------------------
+>
+> [Attack Type]
+> Local
+>
+> ------------------------------------------
+>
+> [Impact Code execution]
+> true
+>
+> ------------------------------------------
+>
+> [Impact Denial of Service]
+> true
+>
+> ------------------------------------------
+>
+> [Impact Escalation of Privileges]
+> true
+>
+> ------------------------------------------
+>
+> [Attack Vectors]
+> PFN_ALIGN double-free
+>
+> ------------------------------------------
+>
+> [Reference]
+> https://github.com/torvalds/linux
+>
+> ------------------------------------------
+>
+> [Discoverer]
+> Underground_Agency (~UA)
+
+Use CVE-2018-9253.
+
